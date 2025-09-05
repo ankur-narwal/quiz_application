@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-left">
+     <div class="home-container" onclick="goHome()">
+  <i class="fas fa-home home-icon"></i>
+  <span class="home-label">Home</span>
+</div>
+
+
+      <span id="attempts">Attempts: 0</span>
+    </div>
+    <div class="header-right">
+      <span id="score">Score: 0</span>
+      <span id="best-score">Best: 0</span>
+      <span id="timer">Time: 60s</span>
+      <label class="switch">
+        <input type="checkbox" id="mode-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <!-- Home -->
+    <div id="start-screen" class="card">
+      <h1>🧠 Welcome to the Quiz</h1>
+      <p>Test your knowledge with 10 questions.</p>
+      <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- Quiz -->
+    <div id="quiz-screen" class="card hidden">
+      <div id="progress-container"><div id="progress-bar"></div></div>
+      <h2 id="question"></h2>
+      <div id="answers"></div>
+      <p id="explanation" class="explanation"></p>
+      <div class="buttons">
+        <button onclick="skipQuestion()">Skip</button>
+        <button onclick="nextQuestion()">Next</button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div id="result-screen" class="card hidden">
+      <h2>🎉 Quiz Completed</h2>
+      <p id="final-score"></p>
+      <button onclick="startQuiz()">Try Again</button>
+    </div>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

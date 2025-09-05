@@ -1,0 +1,228 @@
+:root {
+  --bg-color: #f0f4ff;
+  --text-color: #111;
+  --card-bg: rgba(255, 255, 255, 0.4);
+  --border: rgba(32, 3, 3, 0.2);
+  --accent: #66a3e4;
+  --answer-bg: rgba(175, 9, 9, 0.05);
+
+}
+
+body.dark {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --card-bg: rgba(20, 20, 20, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+  --accent: #4dabf7;
+  --answer-bg: rgba(255, 255, 255, 0.1);
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  gap: 4px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.home-icon {
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.home-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.home-container:hover .home-icon,
+.home-container:hover .home-label {
+  color: var(--accent);
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+header.app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 30px; /* extra right-side breathing space */
+}
+
+
+main {
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  min-height: 90vh;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  margin: 20px auto;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.hidden { display: none; }
+
+button {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.answer {
+  background: var(--answer-bg);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: background 0.3s, color 0.3s;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.answer:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+
+.correct { background-color: rgb(13, 181, 13); color: white; }
+.wrong { background-color: #8c0815; color: white; }
+
+.explanation {
+  font-style: italic;
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+#progress-container {
+  background: #ccc;
+  height: 8px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#progress-bar {
+  background: var(--accent);
+  width: 0%;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  background-color: #ccc;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 34px;
+  cursor: pointer;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #4dabf7;
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+/* Center buttons inside any card */
+.card .buttons,
+.card button {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Optional spacing if needed */
+.card .buttons {
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+/* Center individual standalone buttons (like Start/Retry) */
+.card > button {
+  display: block;
+  margin: 1rem auto;
+}
+#attempts {
+  margin-left: 30px; /* 👈 Shift it slightly to the right */
+  font-weight: 500;
+}
+
+
+
+
